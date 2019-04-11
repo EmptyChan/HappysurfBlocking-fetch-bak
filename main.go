@@ -135,8 +135,6 @@ func httpError(rw http.ResponseWriter, err string, code int) {
 func handler(rw http.ResponseWriter, req *http.Request) {
 	var err error
 
-	logger := log.New(os.Stdout, "index.go: ", 0)
-
 	var hdrLen uint16
 	if err := binary.Read(req.Body, binary.BigEndian, &hdrLen); err != nil {
 		parts := strings.Split(req.Host, ".")
