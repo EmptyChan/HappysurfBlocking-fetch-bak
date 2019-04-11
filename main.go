@@ -196,7 +196,7 @@ func handler(rw http.ResponseWriter, req *http.Request) {
 		req1.Header.Del("Content-Encoding")
 	}
 
-	logger.Printf("%s \"%s %s %s\" - -", req.RemoteAddr, req1.Method, req1.URL.String(), req1.Proto)
+	fmt.Fprintf(os.Stdout, "%s \"%s %s %s\" - -", req.RemoteAddr, req1.Method, req1.URL.String(), req1.Proto)
 
 	var paramsPreifx string = http.CanonicalHeaderKey("X-UrlFetch-")
 	params := map[string]string{}
